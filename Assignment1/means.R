@@ -1,11 +1,21 @@
 zero_mean = function(x, ...) {
   # zero mean function
-  return(numeric(length(x)))
+  defaultW <- getOption("warn") 
+  options(warn = -1)
+  out=numeric(length(x))
+  options(warn = defaultW)
+  return(out)
+  
+  
 }
 
 constant_mean = function(x, c=1, ...) {
   # constant kernel
-  return(numeric(length(as.vector(x))) + c)
+  defaultW <- getOption("warn") 
+  options(warn = -1)
+  out=numeric(length(x)) + c
+  options(warn = defaultW)
+  return(out)
 }
 
 linear_mean = function(x, a=1, b=1, ...) {
